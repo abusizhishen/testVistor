@@ -1,9 +1,9 @@
-if false{
+if false {
     3+4
 }
-elif true{
+elsif true {
  1+2
 }
 else{
-0+02
+    0+2
 }

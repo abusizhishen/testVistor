@@ -12,7 +12,7 @@ null
 null
 null
 'if'
-'elif'
+'elsif'
 'else'
 'end'
 
@@ -30,7 +30,7 @@ null
 NUM
 WS
 IF
-ELIF
+ELSIF
 ELSE
 END
 

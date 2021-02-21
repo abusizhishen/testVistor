@@ -54,10 +54,10 @@ var deserializedATN = deserializer.DeserializeFromUInt16(parserATN)
 
 var literalNames = []string{
 	"", "'+'", "'-'", "'*'", "'/'", "';'", "'true'", "'false'", "'{'", "'}'",
-	"", "", "'if'", "'elif'", "'else'", "'end'",
+	"", "", "'if'", "'elsif'", "'else'", "'end'",
 }
 var symbolicNames = []string{
-	"", "", "", "", "", "", "", "", "", "", "NUM", "WS", "IF", "ELIF", "ELSE",
+	"", "", "", "", "", "", "", "", "", "", "NUM", "WS", "IF", "ELSIF", "ELSE",
 	"END",
 }
 
@@ -93,22 +93,22 @@ func NewVistorParser(input antlr.TokenStream) *VistorParser {
 
 // VistorParser tokens.
 const (
-	VistorParserEOF  = antlr.TokenEOF
-	VistorParserT__0 = 1
-	VistorParserT__1 = 2
-	VistorParserT__2 = 3
-	VistorParserT__3 = 4
-	VistorParserT__4 = 5
-	VistorParserT__5 = 6
-	VistorParserT__6 = 7
-	VistorParserT__7 = 8
-	VistorParserT__8 = 9
-	VistorParserNUM  = 10
-	VistorParserWS   = 11
-	VistorParserIF   = 12
-	VistorParserELIF = 13
-	VistorParserELSE = 14
-	VistorParserEND  = 15
+	VistorParserEOF   = antlr.TokenEOF
+	VistorParserT__0  = 1
+	VistorParserT__1  = 2
+	VistorParserT__2  = 3
+	VistorParserT__3  = 4
+	VistorParserT__4  = 5
+	VistorParserT__5  = 6
+	VistorParserT__6  = 7
+	VistorParserT__7  = 8
+	VistorParserT__8  = 9
+	VistorParserNUM   = 10
+	VistorParserWS    = 11
+	VistorParserIF    = 12
+	VistorParserELSIF = 13
+	VistorParserELSE  = 14
+	VistorParserEND   = 15
 )
 
 // VistorParser rules.
@@ -687,7 +687,7 @@ func (p *VistorParser) IfStatement() (localctx IIfStatementContext) {
 	p.GetErrorHandler().Sync(p)
 	_la = p.GetTokenStream().LA(1)
 
-	for _la == VistorParserELIF {
+	for _la == VistorParserELSIF {
 		{
 			p.SetState(36)
 			p.ElseIfStatement()
@@ -743,8 +743,8 @@ func NewElseIfStatementContext(parser antlr.Parser, parent antlr.ParserRuleConte
 
 func (s *ElseIfStatementContext) GetParser() antlr.Parser { return s.parser }
 
-func (s *ElseIfStatementContext) ELIF() antlr.TerminalNode {
-	return s.GetToken(VistorParserELIF, 0)
+func (s *ElseIfStatementContext) ELSIF() antlr.TerminalNode {
+	return s.GetToken(VistorParserELSIF, 0)
 }
 
 func (s *ElseIfStatementContext) Condition() IConditionContext {
@@ -834,7 +834,7 @@ func (p *VistorParser) ElseIfStatement() (localctx IElseIfStatementContext) {
 	p.EnterOuterAlt(localctx, 1)
 	{
 		p.SetState(44)
-		p.Match(VistorParserELIF)
+		p.Match(VistorParserELSIF)
 	}
 	{
 		p.SetState(45)

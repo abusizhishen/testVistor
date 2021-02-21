@@ -6,7 +6,7 @@ calculate:num op=('+'|'-'|'*'|'/') num ';'?;
 
 WS:[\r\n \t]+ -> skip;
 IF:'if';
-ELIF:'elif';
+ELSIF:'elsif';
 ELSE:'else';
 END:'end';
 condition:'true'|'false';
@@ -20,7 +20,7 @@ ifStatement:
     ;
 
 elseIfStatement:
-    ELIF condition '{'
+    ELSIF condition '{'
         statement*
 '}';
 
